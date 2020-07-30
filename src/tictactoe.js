@@ -9,23 +9,23 @@ class TicTacToe extends Component {
       this.state = { grid: ["","","","","","","","",""], x: true, full: false, result: null, pattern: null };
       this.handleClick = this.handleClick.bind(this);
       this.onReset = this.onReset.bind(this);
-      // this.updateBot = this.updateBot.bind(this);
+      this.updateBot = this.updateBot.bind(this);
       this.checkRes = this.checkRes.bind(this);
     }
 
-    // updateBot() {
-    //   let grid = this.state.grid
-    //   let pos = bestMove(grid)
-    //   grid[pos] = 'O'
-    //   let {res, pattern} = check(grid)
-    //   return {grid: grid, res: res, pattern: pattern}
-    // }
+    updateBot() {
+      let newGrid = [...this.state.grid]
+      let pos = bestMove(newGrid)
+      newGrid[pos] = 'O'
+      let full = this.checkRes(newGrid)
+      this.setState({grid: newGrid, x: true, full: full})
+    }
 
-    checkRes() {
-      let full = this.state.grid.filter(val => val==="").length === 0
+    checkRes(grid = this.state.grid) {
+      let full = grid.filter(val => val==="").length === 0
       
-      let {res, pattern} = check(this.state.grid)
-      
+      let {res, pattern} = check(grid)
+     
       if(res === 'X') {
         this.setState({result: 'X', pattern: pattern}) 
       }
@@ -47,9 +47,10 @@ class TicTacToe extends Component {
       
       let full = this.checkRes()
       this.setState({grid: grid, x:!this.state.x, full: full})
-     console.log( {grid: this.state.grid, x: this.state.x, full: this.state.full})
-      console.log(bestMove(grid))
+      console.log({grid: grid, x:!this.state.x, full: full})
+      this.updateBot()
      }
+
 
     }
 
@@ -72,17 +73,14 @@ function Grid({ x, result, grid, pattern, handleClick}) {
   if(result === null)
   {
     return (
-      <div>
-      <center><h1>{x?'X':'O'}'s Turn</h1></center>
       <div className="grid-container">
       {
         grid.map((val, i) => {
           return (
-            <div className="grid-item hover" onClick={() => handleClick(i)}>{grid[i]}</div>
+          <div className="grid-item hover" onClick={() => handleClick(i)}>{grid[i]==="O"?"🤖":(grid[i]==="X"?"🤸‍♀️":grid[i])}</div>
           );
         })
       }
-      </div>
       </div>
     )
   }
@@ -99,7 +97,7 @@ function Grid({ x, result, grid, pattern, handleClick}) {
         }
         
         return(
-          <div className={gridClass} onClick={() => handleClick(i)}>{grid[i]}</div>
+          <div className={gridClass} onClick={() => handleClick(i)}>{grid[i]==="O"?"🤖":(grid[i]==="X"?"🤸‍♀️":grid[i])}</div>
         );
       })
     }
@@ -117,12 +115,12 @@ function Finish({ result }) {
 
   if(result === 'X')
   {
-    return(<h1 className="over">X Wins!</h1>)
+    return(<h1 className="over">You Win</h1>)
   }
 
   if(result === 'O')
   {
-    return(<h1 className="over">O Wins!</h1>)
+    return(<h1 className="over">Bot Wins!</h1>)
   }
 }
 

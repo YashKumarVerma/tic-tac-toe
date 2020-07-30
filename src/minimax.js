@@ -2,7 +2,7 @@ const { checkscore } = require('./patterns')
 
 
 function gameOver(board) {
-    for(i in board) {
+    for(let i in board) {
         if(board[i] === "")
         {return false}
     }
