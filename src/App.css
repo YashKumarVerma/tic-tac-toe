@@ -2,12 +2,15 @@
   display: inline-grid;
   grid-template-columns: auto auto;
 }
+
+
 .display {
+  grid-column: 2;
   display: grid;
   grid-template-rows: auto auto;
   width: 700px;
-  height: 400px;
-  margin-top: 150px;
+  height: 300px;
+  margin-top: 250px;
   margin-left: 250px;
   /*margin-right: 100px;
   margin-bottom: 150px; */
@@ -18,14 +21,38 @@
 .header {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 100px;
+  margin-top: 20px;
   font-size: 100px;
+  margin-left: 30px;
 }
+
+/* .buttons {
+  border: 2px solid antiquewhite;
+} */
+
+.btn {
+  margin-top:100px;
+  margin-left: 30px;
+  border-radius: 20px;
+  border: none;
+  font-size: 20px;
+  height: 70px;
+  width: 200px;
+  color: aliceblue;
+  font-weight: bold;
+  background-color: teal;
+}
+
+.btn:hover{
+  border: 10px solid aliceblue;
+}
+
+
 
 .links {
   height: 50px;
   width:250px;
-  margin-left: 15px;
+  margin-left: 45px;
   font-size: 30px;
   color: teal;
   /* border: 2px solid blue; */

@@ -73,6 +73,8 @@ function Grid({ x, result, grid, pattern, handleClick}) {
   if(result === null)
   {
     return (
+      <div>
+        <center><Finish result={""} /></center>
       <div className="grid-container">
       {
         grid.map((val, i) => {
@@ -81,6 +83,7 @@ function Grid({ x, result, grid, pattern, handleClick}) {
           );
         })
       }
+      </div>
       </div>
     )
   }
@@ -108,6 +111,11 @@ function Grid({ x, result, grid, pattern, handleClick}) {
 
 
 function Finish({ result }) {
+  if(result === '')
+  {
+    return(<h1 className="hide">Bla</h1>)
+  }
+
   if(result === 'D')
   {
     return(<h1 className="over">Draw!</h1>)

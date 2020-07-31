@@ -1,5 +1,4 @@
 {
-  "homepage": "http://eeshashetty.github.io/tic-tac-toe",
   "name": "tic-tac-toe",
   "version": "0.1.0",
   "private": true,
@@ -14,7 +13,6 @@
   },
   "scripts": {
     "build": "react-scripts build",
-    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -33,8 +31,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^3.1.0"
   }
 }
