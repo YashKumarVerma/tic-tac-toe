@@ -38,7 +38,7 @@ body{
     grid-template-columns: auto auto auto;
     padding: 20px;
     border-radius: 20px;
-    margin-top: 50px;
+    /* margin-top: 50px; */
     /* margin: 100px; */
     /* border: 2px solid black; */
     width: auto;
@@ -53,7 +53,7 @@ body{
     border-radius: 20px;
     background-color: rgb(211, 209, 222);
     margin: 10px;
-    padding:10px;
+    padding:20px;
     width: 125px;
     height: 125px;
     font-size: 80px;
@@ -70,6 +70,7 @@ body{
 
   .gsel {
     border: 8px solid white;
+    margin-left: 5px;
     background-color: rgb(15, 150, 118);
     border-radius: 40px;
     color: white;

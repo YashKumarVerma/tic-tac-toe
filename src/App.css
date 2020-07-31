@@ -3,6 +3,10 @@
   grid-template-columns: auto auto;
 }
 
+.msg {
+  margin-left: 50px;
+  font-size: 20px;
+}
 
 .display {
   grid-column: 2;
